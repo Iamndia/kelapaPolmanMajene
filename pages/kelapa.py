@@ -79,7 +79,15 @@ df.columns = df.columns.str.strip()
 
 # Membagi hasil clustering ke dalam tiga kategori: Rendah, Sedang, Tinggi
 cluster_labels = ['Rendah', 'Sedang', 'Tinggi']
-clusters_split = np.array_split(range(clust), 3)
+# clusters_split = np.array_split(range(clust), 3)
+# Cek jumlah cluster
+if clust == 2:
+    # Jika jumlah cluster 2, hanya gunakan kategori Tinggi dan Rendah
+    clusters_split = np.array_split(range(clust), 2)  # Bagi menjadi 2 kelompok
+    cluster_labels = ['Rendah', 'Tinggi']
+else:
+    # Jika lebih dari 2, gunakan kategori Rendah, Sedang, Tinggi
+    clusters_split = np.array_split(range(clust), 3)
 
 cluster_mapping = {}
 for idx, split in enumerate(clusters_split):
