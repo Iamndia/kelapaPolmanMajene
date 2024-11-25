@@ -106,15 +106,15 @@ st.header("Hasil Cluster")
 st.markdown(df.to_html(classes='styled-table'), unsafe_allow_html=True)
 
 # Menampilkan Peta dengan hasil pengelompokan
-st.subheader("Peta Hasil Pengelompokan")
-map_loc = folium.Map(location=[df['latitude'].mean(), df['longtitude'].mean()], zoom_start=8)
-for idx, row in df.iterrows():
-    folium.Marker(
-        location=[row['latitude'], row['longtitude']], 
-        tooltip=f"Kecamatan {row['Kecamatan']} (Cluster: {row['Cluster']})",
-        icon=folium.Icon(color=cluster_colors[row['Cluster']])
-    ).add_to(map_loc)
-st_folium(map_loc, width=700)
+# st.subheader("Peta Hasil Pengelompokan")
+# map_loc = folium.Map(location=[df['latitude'].mean(), df['longtitude'].mean()], zoom_start=8)
+# for idx, row in df.iterrows():
+#     folium.Marker(
+#         location=[row['latitude'], row['longtitude']], 
+#         tooltip=f"Kecamatan {row['Kecamatan']} (Cluster: {row['Cluster']})",
+#         icon=folium.Icon(color=cluster_colors[row['Cluster']])
+#     ).add_to(map_loc)
+# st_folium(map_loc, width=700)
 
 # Custom CSS untuk mengubah warna latar belakang
 st.markdown(
